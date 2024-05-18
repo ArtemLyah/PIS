@@ -16,21 +16,24 @@ app.get('/', (req, res) => {
 });
 
 app.get('/questions', async (req, res) => {
-  const { data } = await axios.get<any, AxiosResponse<PaginationResponse<QuestionResponse>>>('https://api.stackexchange.com/2.3/questions', {
-    params: {
-      page: 1,
-      pagesize: 10,
-      site: 'stackoverflow',
-      sort: 'creation',
-    },
-  });
+  const { data } = await axios.get<any, AxiosResponse<PaginationResponse<QuestionResponse>>>(
+    'https://api.stackexchange.com/2.3/questions', 
+    {
+      params: {
+        page: 1,
+        pagesize: 10,
+        site: 'stackoverflow',
+        sort: 'hot',
+      },
+    }
+  );
 
   res.render('questions', {
     questions: data.items,
   });
 });
 
-app.get('/liakh.artemii@lll.kpi.ua', async (req, res) => {
+app.get('/liakh.artemii@lll.kpi.ua', (req, res) => {
   res.render('me');
 });
 
