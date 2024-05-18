@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="question.css">
+    <title>Document</title>
+</head>
+<body>
+    <a href="/">Home</a>
+    <h1>Questions</h1>
+
+    <table class="table">
+        <tr>
+            <th>Id</th>
+            <th>Title</th>
+            <th>Answers</th>
+            <th>Views</th>
+            <th>Score</th>
+            <th>Is answered</th>
+        </tr>
+        <% questions.forEach(question => { %>
+            <tr>
+                <td><%= question.question_id %></td>
+                <td><a href="<%= question.link %>"><%= question.title %></a></td>
+                <td><%= question.answer_count %></td>
+                <td><%= question.view_count %></td>
+                <td><%= question.score %></td>
+                <td><%= question.is_answered %></td>
+            </tr>
+        <% }); %>
+    </table>
+</body>
+</html>
